@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Matt Weatherford</title>
+
+    <!-- Config -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- SEO -->
+    <meta name="author" content="Matthew Weatherford">
+    <meta name="description" content="Hello, my name is Matthew Weatherford. I am a web developer in Austin, TX.">
+
+    <!-- STYLING -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/fresh.css">
+    <link rel="stylesheet" href="assets/css/skeleton.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- JS -->
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/ajax.js"></script>
+
+    <!-- ICON -->
+    <link rel="icon" type="image/png" href="assets/images/mw.png">
+</head>
+
+<body>
+    <div id="left">
+        <div class="piece"></div>
+        <div class="piece">
+            <img class="paddingMedium hover" src="./assets/images/logo.png" alt="My Logo">
+            <h5 class="paddingMedium noTopMargin">Matthew Weatherford
+                <small>Full Stack Developer</small>
+            </h5>
+        </div>
+        <div class="piece"></div>
+    </div>
+    <div id="center">
+        <div class="top">
+            <div class="mid">
+                <ul class="leftList">
+                    <li class="hover">
+                        about
+                    </li>
+                    <li class="hover">
+                        projects
+                    </li>
+                    <li id="contact" class="hover">
+                        contact
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="messageBox">
+        <div class="top gray onTop">
+            <img class="center marginSmall square rounded onTopMore" src="https://s3.amazonaws.com/matthew-weatherford-images/matt.jpg" alt="Picture of Matt"
+            />
+            <p id="date" class="paddingSmall"></p>
+        </div>
+        <div id="messages">
+            <div class="defaultMessage">
+                Howdy!
+            </div>
+            <div class="defaultMessage">
+                When you send me a message, make sure to let me know your name, your contact info, and the reason you want to get in touch.
+                Thanks!
+            </div>
+            </div>
+            <form onsubmit="return false;">
+                <input type "text" id="input" placeholder="Enter Message Here"/>
+            </form>
+        </div>
+</body>
+</html>
