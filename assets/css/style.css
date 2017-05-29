@@ -55,12 +55,14 @@ small {
 }
 /* Messaging Box */
 .messageBox {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 40px;
   height: 425px;
   margin-top: 50px;
-  border: 0.2px solid lightgray;
+  border-right: 0.2px solid lightgray;
+  border-left: 0.2px solid lightgray;
+  border-top: 0.2px solid lightgray;
   width: 300px;
   opacity: 0;
 }
@@ -99,14 +101,15 @@ small {
   color: red;;
   clear: both;
 }
-.defaultMessage:last-child {
+.defaultMessage:last-child, .yourMessage:last-child, .dateMessage.defaultMessage:last-child {
   margin-bottom: 40px;
 }
 #messages {
   z-index: 99;
   max-height: 350px;
+  height: 85%;
   overflow: scroll;
-  background-color: transparent;
+  background-color: white;
 }
 #input {
   position: absolute;
@@ -123,41 +126,17 @@ small {
   padding: 8px 5px 8px 5px;
 }
 
-
-/* Media Queryies */
-@media(max-width: 800px) {
-  #left {
-    display: none;
-  }
-  .piece {
-    display: none;
-  }
-  .resetMargin {
-     margin: 0px 0px 0px 0px;
-  }
-  .mid {
-    width: 320px;
-  }
-  .messageBox {
-    right: 5px;
-  }
-}
-@media(max-height: 450px) {
-  .messageBox {
-    height: 250px;
-  }
-  #messages {
-      max-height: 150px;
-  }
-}
-
 /* ID's */
 #date {
   text-align: right;
   font-size: 0.8em;
   float: right;
 }
-
+#about {
+  font-size: 3em;
+  text-align: left;
+  margin-left: 250px;
+}
 
 /* atomic styles */
 .autoCenter {
@@ -215,4 +194,60 @@ small {
 .onTopMore {
   z-index: 101 !important;
   position: relative;
+}
+.flair {
+  color: darkgray;
+}
+.newFam {
+  font-size: 0.9em;
+  opacity: 0.9;
+}
+.newFam2 {
+  font-size: 0.8em;
+  opacity: 0.8;
+}
+.newFam3 {
+  font-size: 0.7em;
+  opacity: 0.7;
+}
+.newFam4 {
+  font-size: 0.6em;
+  opacity: 0.6;
+}
+.newFam5 {
+  font-size: 0.5em;
+  opacity: 0.5;
+}
+.newFam6 {
+  font-size: 0.4em;
+  opacity: 0.4;
+}
+/* Media Queryies */
+@media(max-width: 800px) {
+  #left {
+    display: none;
+  }
+  .piece {
+    display: none;
+  }
+  .resetMargin {
+     margin: 0px 0px 0px 0px;
+  }
+  .mid {
+    width: 320px;
+  }
+  .messageBox {
+    right: 5px;
+  }
+  #about {
+    margin-left: 10px;
+  }
+}
+@media(max-height: 450px) {
+  .messageBox {
+    height: 250px;
+  }
+  #messages {
+      max-height: 150px;
+  }
 }

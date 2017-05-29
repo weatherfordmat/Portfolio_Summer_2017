@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
   contact.onclick = function () {
     var innerT = contact.innerHTML.trim()
     if (innerT === 'contact') {
-      messageBox[0].style.opacity = 1
+        messageBox[0].style.opacity = 1;
       contact.innerHTML = 'close'
     } else {
       messageBox[0].style.opacity = 0
@@ -42,7 +42,7 @@ const $ = {
 
 function sendSMS (message) {
   var SID = keys.SID;
-  var Key = keys.Key +"DON'T WANT IT TO WORK";
+  var Key = keys.Key +"DEV";
   jQuery.ajax({
     type: 'POST',
     url: 'https://api.twilio.com/2010-04-01/Accounts/' + SID + '/Messages.json',
