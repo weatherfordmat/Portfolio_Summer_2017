@@ -35,10 +35,21 @@
         <div class="piece">
             <img class="paddingMedium hover" src="./assets/images/logo.png" alt="My Logo">
             <h5 class="paddingMedium noTopMargin">Matthew Weatherford
-                <small>Full Stack Developer</small>
             </h5>
         </div>
-        <div class="piece"></div>
+        <div class="piece">
+               <h5 class="paddingMedium noTopMargin noTopMargin">  <small>Full Stack Developer</small></h5>
+               <h5 class="paddingMedium noTopMargin noTopMargin">
+                   <a href="https://www.linkedin.com/in/matthewweatherford/" target="_new"><i class="fa fa-linkedin hover" aria-hidden="true"></i></a>
+               </h5>
+                <h5 class="paddingMedium noTopMargin noTopMargin">
+                   <a href="https://github.com/weatherfordmat" target="_new"><i class="fa fa-github-alt hover" aria-hidden="true"></i></a>
+               </h5>
+                <h5 class="paddingMedium noTopMargin noTopMargin">
+                    <a href="https://www.facebook.com/weatherfordmat" target="_new"><i class="fa fa-facebook hover" aria-hidden="true"></i></a>
+               </h5>
+         
+        </div>
     </div>
     <div id="center">
         <div class="top">
@@ -80,7 +91,7 @@
         <div class="top gray onTop bottom">
             <img class="center marginSmall square rounded onTopMore" src="https://s3.amazonaws.com/matthew-weatherford-images/matt.jpg"
                 alt="Picture of Matt" />
-            <p id="date" class="paddingSmall"></p>
+            <p id="exit" class="clearPad hover">X</p>
         </div>
         <div id="messages">
             <div class="defaultMessage">
@@ -94,6 +105,9 @@
         <form autocomplete="off" onsubmit="return false;">
             <input autocomplete="off" type "text" id="input" placeholder="Enter Message Here" />
         </form>
+    </div>
+    <div class="messageBoxOverlay" id="messageBoxOverlay">
+        <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw marginTop"></i><br/>
     </div>
 </body>
 

@@ -32,6 +32,15 @@ document.addEventListener('DOMContentLoaded', function () {
       contact.innerHTML = 'contact'
     }
   }
+
+  var exit = document.getElementById('exit');
+  exit.onclick = function() {
+    messageBox[0].style.opacity = 0;
+    contact.innerHTML = 'contact';
+  }
+
+
+
 }, false)
 
 const $ = {
@@ -41,6 +50,9 @@ const $ = {
 }
 
 function sendSMS (message) {
+  var messageOverlay = document.getElementById('messageBoxOverlay');
+  messageOverlay.style.opacity = 0.6;
+  messageOverlay.style.width = '300px';
   var SID = keys.SID;
   var Key = keys.Key +"DEV";
   jQuery.ajax({
@@ -69,7 +81,9 @@ function sendSMS (message) {
         var thankYou = document.createTextNode('Thanks! I\'ll try to get back to you as soon as possible');
         div.appendChild(thankYou);
         parent.appendChild(div);
-        parent.scrollTop = parent.scrollHeight
+        parent.scrollTop = parent.scrollHeight;
+        messageOverlay.style.opacity = 0;
+        messageOverlay.style.width = '0px';
 
     },
     error: function (data) {
@@ -86,7 +100,9 @@ function sendSMS (message) {
         var thankYou = document.createTextNode('Hmmm, it looks like it didn\'t get sent through. You can reach me at weatherfordmat@gmail.com');
         div.appendChild(thankYou);
         parent.appendChild(div);
-        parent.scrollTop = parent.scrollHeight
+        parent.scrollTop = parent.scrollHeight;
+        messageOverlay.style.opacity = 0;
+        messageOverlay.style.width = '0px';
     }
   })
 }
