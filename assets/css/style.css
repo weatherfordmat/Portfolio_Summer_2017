@@ -64,7 +64,7 @@ i {
   position: fixed;
   bottom: 0;
   right: 40px;
-  height: 425px;
+  height: 0px;
   margin-top: 50px;
   border-right: 0.2px solid lightgray;
   border-left: 0.2px solid lightgray;
@@ -146,6 +146,82 @@ i {
   height: 30px;
   padding: 8px 5px 8px 5px;
 }
+/* Portfolio area */
+.portfolioBox {
+  width: 650px;
+  height: 650px;
+  margin-top: 5%;
+  margin-left: 515px;
+  border: 0.2px solid #184156;
+  background-image: url("https://images.pexels.com/photos/353644/pexels-photo-353644.jpeg?h=350&auto=compress&cs=tinysrgb");
+ background-repeat: no-repeat;
+ background-size: cover;
+ z-index: 40;
+}
+@media (max-width: 1375px) {
+  .portfolioBox {
+    margin-left: 415px;
+    margin-top: 3%;
+  }
+}
+.sideBox {
+  width: 300px;
+  height: 300px;
+  margin-left: 600px;
+  margin-top: 2%;
+  background-color: white;
+  z-index: 41;
+  border: 0.2px solid #184156;
+}
+.sideBox h5 {
+  text-align: left;
+  padding: 10px;
+}
+.sideBox p {
+  text-align: left;
+  padding: 10px;
+}
+.bottomBox {
+  position: relative;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin-top: 40%;
+  height: 75px;
+  background-color: #313630;
+}
+.tag {
+  width: fit-content;
+  background-color: #52abd9;
+  color: white;
+  border-radius: 10px;
+  padding: 5px;
+  float: left;
+  margin: 10px;
+}
+.link {
+  float: right;
+  padding: 5px;
+  color: white;
+  font-size: 1.3em;
+}
+.link:hover {
+  cursor: crosshair;
+  opacity: 0.8;
+}
+.arrowR {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 20px;
+}
+.arrowL {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  height: 20px
+}
 
 /* ID's */
 #exit {
@@ -157,8 +233,10 @@ i {
 }
 #about {
   font-size: 3em;
+  display: none;
   hyphens: auto;
   text-align: left;
+  opacity: 0;
   margin-left: 250px;
 }
 .clearPad {
@@ -283,7 +361,7 @@ i {
 }
 @media(max-height: 450px) {
   .messageBox {
-    height: 250px;
+    height: 250px !important;
   }
   .messageBoxOverlay {
     height: 250px;

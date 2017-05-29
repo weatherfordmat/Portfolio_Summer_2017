@@ -1,7 +1,61 @@
 document.addEventListener('DOMContentLoaded', function () {
+
+    /* Portfolio Section */
+    var index = 0;
+    var len = Object.keys(data).length;
+    var right = document.getElementById('right');
+    var left = document.getElementById('leftish');
+
+    right.onclick = function() {
+        if (index < len-1) {
+            index = index + 1;
+        } else {
+            index = 0;
+        }
+        insert();
+        console.log(index);
+    }
+
+    left.onclick = function() {
+        if (index === 0) {
+            index = len-1;
+        } else {
+            index = index - 1;
+        }
+        insert();
+        console.log(index);
+    }
+
+    function insert() {
+        // title;
+        var title = document.getElementById('title');
+        title.innerHTML = data[index].title;
+
+        var port = document.getElementById('portfolioBox');
+        port.style.backgroundImage = "url("+data[index].picture+")";
+
+        // desc;
+        var desc = document.getElementById('desc');
+        desc.innerHTML = data[index].description;
+
+        // tags;
+        var bottom = document.getElementById('bottomBox');
+        bottom.innerHTML = '';
+        var ele = data[index].lang.split(',');
+        for (var i = 0; i < ele.length; ++i) {
+            var span = document.createElement('span');
+            $.addClass(span, 'tag');
+            var tagText = document.createTextNode(ele[i]);
+            span.appendChild(tagText);
+            bottom.appendChild(span);
+        }
+
+    }
+      /* End of Portfolio Section */
+
+  /* Messaging System */
   // get input from input field
   var input = document.getElementById('input')
-
   input.addEventListener('onkeyup', (evt) => {
     return evt
   }, false)
@@ -10,10 +64,10 @@ document.addEventListener('DOMContentLoaded', function () {
     if (event.keyCode === 13) {
       var parent = document.getElementById('messages')
       var div = document.createElement('div')
-      $.addClass(div, 'yourMessage');
+      $.addClass(div, 'yourMessage')
       sendSMS(input.value)
-      var text = document.createTextNode(input.value);
-            input.value = '';
+      var text = document.createTextNode(input.value)
+      input.value = ''
       div.appendChild(text)
       parent.appendChild(div)
       parent.scrollTop = parent.scrollHeight
@@ -25,22 +79,34 @@ document.addEventListener('DOMContentLoaded', function () {
   contact.onclick = function () {
     var innerT = contact.innerHTML.trim()
     if (innerT === 'contact') {
-        messageBox[0].style.opacity = 1;
+      messageBox[0].style.opacity = 1
+      messageBox[0].style.transition = 'height 0.3s'
+      messageBox[0].style.height = '425px';
       contact.innerHTML = 'close'
     } else {
+      messageBox[0].style.transition = 'opacity, height 0.3s'
       messageBox[0].style.opacity = 0
+      messageBox[0].style.height = '0px';
       contact.innerHTML = 'contact'
     }
   }
 
-  var exit = document.getElementById('exit');
-  exit.onclick = function() {
-    messageBox[0].style.opacity = 0;
-    contact.innerHTML = 'contact';
+  var exit = document.getElementById('exit')
+  exit.onclick = function () {
+    messageBox[0].style.transition = 'opacity, height 0.3s'
+    messageBox[0].style.opacity = 0
+    messageBox[0].style.height = '0px';
+    contact.innerHTML = 'contact'
   }
+  /* End Of Messaging System */
 
-
-
+  /* About Me  */
+  var aboutButton = document.getElementById('aboutButton')
+  var about = document.getElementById('about');
+  aboutButton.onclick = function () {
+    about.style.transition = 'opacity 1s'
+    about.style.opacity = '1'
+  }
 }, false)
 
 const $ = {
@@ -50,11 +116,12 @@ const $ = {
 }
 
 function sendSMS (message) {
-  var messageOverlay = document.getElementById('messageBoxOverlay');
-  messageOverlay.style.opacity = 0.6;
-  messageOverlay.style.width = '300px';
-  var SID = keys.SID;
-  var Key = keys.Key +"DEV";
+  var messageOverlay = document.getElementById('messageBoxOverlay')
+  messageOverlay.style.opacity = 0.6
+  messageOverlay.style.transition = 'width 1s'
+  messageOverlay.style.width = '300px'
+  var SID = keys.SID
+  var Key = keys.Key + 'DEV'
   jQuery.ajax({
     type: 'POST',
     url: 'https://api.twilio.com/2010-04-01/Accounts/' + SID + '/Messages.json',
@@ -67,42 +134,41 @@ function sendSMS (message) {
       xhr.setRequestHeader('Authorization', 'Basic ' + btoa(SID + ':' + Key))
     },
     success: function (data) {
-        console.log(data);
-        var parent = document.getElementById('messages');
-        var dateField = document.createElement('small');
-        $.addClass(dateField, 'dateMessage')
-        var date = new Date().toLocaleString();
-        let newText = document.createTextNode('Sent at ' +date);
-        dateField.appendChild(newText);
-        parent.appendChild(dateField);
+      console.log(data)
+      var parent = document.getElementById('messages')
+      var dateField = document.createElement('small')
+      $.addClass(dateField, 'dateMessage')
+      var date = new Date().toLocaleString()
+      let newText = document.createTextNode('Sent at ' + date)
+      dateField.appendChild(newText)
+      parent.appendChild(dateField)
 
-        var div = document.createElement('div');
-        $.addClass(div, 'defaultMessage')
-        var thankYou = document.createTextNode('Thanks! I\'ll try to get back to you as soon as possible');
-        div.appendChild(thankYou);
-        parent.appendChild(div);
-        parent.scrollTop = parent.scrollHeight;
-        messageOverlay.style.opacity = 0;
-        messageOverlay.style.width = '0px';
-
+      var div = document.createElement('div')
+      $.addClass(div, 'defaultMessage')
+      var thankYou = document.createTextNode("Thanks! I'll try to get back to you as soon as possible")
+      div.appendChild(thankYou)
+      parent.appendChild(div)
+      parent.scrollTop = parent.scrollHeight
+      messageOverlay.style.opacity = 0
+      messageOverlay.style.width = '0px'
     },
     error: function (data) {
-      console.log(data);
-        var parent = document.getElementById('messages');
-        var dateField = document.createElement('small');
-        $.addClass(dateField, 'dateMessageError');
-        let newText = document.createTextNode('Error Sending Message.');
-        dateField.appendChild(newText);
-        parent.appendChild(dateField);
+      console.log(data)
+      var parent = document.getElementById('messages')
+      var dateField = document.createElement('small')
+      $.addClass(dateField, 'dateMessageError')
+      let newText = document.createTextNode('Error Sending Message.')
+      dateField.appendChild(newText)
+      parent.appendChild(dateField)
 
-        var div = document.createElement('div');
-        $.addClass(div, 'defaultMessage')
-        var thankYou = document.createTextNode('Hmmm, it looks like it didn\'t get sent through. You can reach me at weatherfordmat@gmail.com');
-        div.appendChild(thankYou);
-        parent.appendChild(div);
-        parent.scrollTop = parent.scrollHeight;
-        messageOverlay.style.opacity = 0;
-        messageOverlay.style.width = '0px';
+      var div = document.createElement('div')
+      $.addClass(div, 'defaultMessage')
+      var thankYou = document.createTextNode("Hmmm, it looks like it didn't get sent through. You can reach me at weatherfordmat@gmail.com")
+      div.appendChild(thankYou)
+      parent.appendChild(div)
+      parent.scrollTop = parent.scrollHeight
+      messageOverlay.style.opacity = 0
+      messageOverlay.style.width = '0px'
     }
   })
 }
