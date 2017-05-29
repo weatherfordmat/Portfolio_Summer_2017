@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function () {
             index = 0;
         }
         insert();
-        console.log(index);
     }
 
     left.onclick = function() {
@@ -23,15 +22,14 @@ document.addEventListener('DOMContentLoaded', function () {
             index = index - 1;
         }
         insert();
-        console.log(index);
     }
-
+    var port = document.getElementById('portfolioBox');
     function insert() {
         // title;
         var title = document.getElementById('title');
         title.innerHTML = data[index].title;
 
-        var port = document.getElementById('portfolioBox');
+        
         port.style.backgroundImage = "url("+data[index].picture+")";
 
         // desc;
@@ -48,6 +46,26 @@ document.addEventListener('DOMContentLoaded', function () {
             var tagText = document.createTextNode(ele[i]);
             span.appendChild(tagText);
             bottom.appendChild(span);
+        }
+
+        // link
+        if (data[index].link !== '') {
+            var a = document.createElement('a');
+            $.addClass(a, 'link');
+            var aText = document.createTextNode("View Site");
+            a.href = data[index].link;
+            a.setAttribute('target', '_blank');
+            a.appendChild(aText);
+            bottom.appendChild(a);
+        }
+        if (data[index].github !== '') {
+            var a = document.createElement('a');
+            $.addClass(a, 'link');
+            var aText = document.createTextNode("Github");
+            a.href = data[index].github;
+            a.setAttribute('target', '_blank');
+            a.appendChild(aText);
+            bottom.appendChild(a);
         }
 
     }
@@ -106,8 +124,23 @@ document.addEventListener('DOMContentLoaded', function () {
   aboutButton.onclick = function () {
     about.style.transition = 'opacity 1s'
     about.style.opacity = '1'
+    about.style.display = 'block';
+    port.style.opacity = '0';
+    port.style.display = 'none';
   }
-}, false)
+var projects = document.getElementById('projects');
+  projects.onclick = function() {
+    port.style.transition = 'opacity 1s'
+    port.style.opacity = '1'
+    port.style.display = 'block';
+    about.style.opacity = '0';
+    about.style.display = 'none';
+  }
+
+
+
+}, false);
+
 
 const $ = {
   addClass: function (element, className) {
@@ -134,7 +167,6 @@ function sendSMS (message) {
       xhr.setRequestHeader('Authorization', 'Basic ' + btoa(SID + ':' + Key))
     },
     success: function (data) {
-      console.log(data)
       var parent = document.getElementById('messages')
       var dateField = document.createElement('small')
       $.addClass(dateField, 'dateMessage')
@@ -153,7 +185,6 @@ function sendSMS (message) {
       messageOverlay.style.width = '0px'
     },
     error: function (data) {
-      console.log(data)
       var parent = document.getElementById('messages')
       var dateField = document.createElement('small')
       $.addClass(dateField, 'dateMessageError')

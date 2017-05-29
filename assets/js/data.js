@@ -9,18 +9,18 @@ const data = {
     },
     1: {
         "title": "@WorkMonger: Building a Job Matching Platform",
-        "description": "Hello",
+        "description": "I am currently working at WorkMonger. We are trying to bring the insights of 'big data' to matching job seekers with employers who are looking for non-teaching professionals in the education sector",
         "lang": "Isomorphic React, Redux, MySQL, SCSS.",
-        "picture": "https://images.pexels.com/photos/24068/pexels-photo.jpg?h=350&auto=compress&cs=tinysrgb",
+        "picture": "https://images.pexels.com/photos/140945/pexels-photo-140945.jpeg?h=350&auto=compress&cs=tinysrgb",
         "link": "https://workmonger.com/",
         "github": ""
     },
     2: {
         "title": "Geeky Possum",
-        "description": "bye",
+        "description": "I am creating a video tutorial series that will cover AWS, the 'Internet of Things', React, and other interesting technologies. I think it's always important to recognize your blessings and give back to the community. It should be released in about three weeks.",
         "lang": "PostgreSQL, Haskell, AWS, Redux, etc.",
-        "picture": "https://images.pexels.com/photos/24068/pexels-photo.jpg?h=350&auto=compress&cs=tinysrgb",
+        "picture": "../assets/images/geekyPossum.png",
         "link": "",
-        "github": ""
+        "github": "https://github.com/weatherfordmat/Lambda-Tool"
     }
 }
