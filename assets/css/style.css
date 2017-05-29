@@ -90,6 +90,15 @@ small {
   color: lightgray;
   clear: both;
 }
+.dateMessageError {
+  float: left;
+  padding: 0px;
+  margin: 10px;
+  max-width: 70%;
+  margin-top: -3px;
+  color: red;;
+  clear: both;
+}
 .defaultMessage:last-child {
   margin-bottom: 40px;
 }
@@ -157,6 +166,9 @@ small {
 .gray {
   background-color: lightgray;
 }
+.bottom {
+     border-bottom: 1px solid darkgray;
+}
 .marginSmall {
   margin: 12px;
 }
@@ -202,4 +214,5 @@ small {
 }
 .onTopMore {
   z-index: 101 !important;
+  position: relative;
 }

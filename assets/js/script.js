@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded', function () {
       var div = document.createElement('div')
       $.addClass(div, 'yourMessage');
       sendSMS(input.value)
-      var text = document.createTextNode(input.value)
+      var text = document.createTextNode(input.value);
+            input.value = '';
       div.appendChild(text)
       parent.appendChild(div)
       parent.scrollTop = parent.scrollHeight
@@ -41,13 +42,13 @@ const $ = {
 
 function sendSMS (message) {
   var SID = keys.SID;
-  var Key = keys.Key;
+  var Key = keys.Key +"DON'T WANT IT TO WORK";
   jQuery.ajax({
     type: 'POST',
     url: 'https://api.twilio.com/2010-04-01/Accounts/' + SID + '/Messages.json',
     data: {
-      'To': '+12817430153',
-      'From': '+15123577523 ',
+      'To': keys.To,
+      'From': keys.From,
       'Body': message
     },
     beforeSend: function (xhr) {
@@ -68,10 +69,24 @@ function sendSMS (message) {
         var thankYou = document.createTextNode('Thanks! I\'ll try to get back to you as soon as possible');
         div.appendChild(thankYou);
         parent.appendChild(div);
+        parent.scrollTop = parent.scrollHeight
 
     },
     error: function (data) {
-      console.log(data)
+      console.log(data);
+        var parent = document.getElementById('messages');
+        var dateField = document.createElement('small');
+        $.addClass(dateField, 'dateMessageError');
+        let newText = document.createTextNode('Error Sending Message.');
+        dateField.appendChild(newText);
+        parent.appendChild(dateField);
+
+        var div = document.createElement('div');
+        $.addClass(div, 'defaultMessage')
+        var thankYou = document.createTextNode('Hmmm, it looks like it didn\'t get sent through. You can reach me at weatherfordmat@gmail.com');
+        div.appendChild(thankYou);
+        parent.appendChild(div);
+        parent.scrollTop = parent.scrollHeight
     }
   })
 }
