@@ -154,7 +154,7 @@ function sendSMS (message) {
   messageOverlay.style.transition = 'width 1s'
   messageOverlay.style.width = '300px'
   var SID = keys.SID
-  var Key = keys.Key + 'DEV'
+  var Key = keys.Key;
   jQuery.ajax({
     type: 'POST',
     url: 'https://api.twilio.com/2010-04-01/Accounts/' + SID + '/Messages.json',
