@@ -1,13 +1,6 @@
 # My New Portfolio!
 
-Check back soon for my new revised portfolio, which will feature
+My porfolio is live! [My Portfolio](http://www.matthewweatherford.com/)
 
-1. Real time communication
-
-2. A frameworkless, jqueryless, bootstrapless YET responsive front-end.
-
-3. A look at some of my recent work.
-
-4. Maybe some interesting animations.
-
+I strive to use as little libraries as possible to show that often beautiful products do not necessitate complicated code.
 
