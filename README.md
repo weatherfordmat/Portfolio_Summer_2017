@@ -1,4 +1,4 @@
-# My New Portfolio!
+# My Portfolio!
 
 My porfolio is live! [My Portfolio](http://www.matthewweatherford.com/)
 
